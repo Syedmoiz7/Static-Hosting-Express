@@ -4,7 +4,9 @@ import express from 'express';
 const app = express()
 const port = process.env.PORT || 3000
 
-app.use('/static', express.static(path.join(path.resolve(__dirname), './webiste/build')))
+
+const __dirname = path.resolve();
+app.use('/', express.static(path.join(__dirname, './website/build')));
 
 app.get('/abc', (req, res) => {
     console.log("request ip: ", req.ip);
